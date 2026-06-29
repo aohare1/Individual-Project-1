@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dxpi8e2m2fxj4"]
+
+[ext_resource type="Script" uid="uid://cbbonv8ofkd3o" path="res://Scripts/enemy_1.gd" id="1_0a874"]
+[ext_resource type="Texture2D" uid="uid://cmcasyb1e00ea" path="res://Sprites/Enemy_1.png" id="2_lssre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mevg1"]
+size = Vector2(30.620695, 2.5010548)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cry63"]
+size = Vector2(23.660715, 21.607143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvk25"]
+
+[node name="Enemy1" type="CharacterBody2D" unique_id=1744822855]
+script = ExtResource("1_0a874")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=166049432]
+scale = Vector2(2, 2)
+texture = ExtResource("2_lssre")
+
+[node name="StompDetector" type="Area2D" parent="." unique_id=117716570]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector" unique_id=1426907800]
+position = Vector2(0.4999994, -24.998875)
+scale = Vector2(1.600225, 1.600225)
+shape = SubResource("RectangleShape2D_mevg1")
+
+[node name="HurtDetector" type="Area2D" parent="." unique_id=799112463]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtDetector" unique_id=1821481872]
+position = Vector2(0.50000083, 1.7999996)
+scale = Vector2(2.24, 2.24)
+shape = SubResource("RectangleShape2D_cry63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087163617]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_uvk25")
+
+[connection signal="body_entered" from="StompDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="StompDetector" to="." method="_on_stomp_detector_body_entered"]
+[connection signal="body_entered" from="HurtDetector" to="." method="_on_hurt_detector_body_entered"]

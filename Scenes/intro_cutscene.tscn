@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cn3k7oioywohq"]
+
+[ext_resource type="Script" uid="uid://dx4vlm6v3bli2" path="res://Scripts/intro_cutscene.gd" id="1_485iv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_485iv"]
+font_size = 45
+
+[node name="IntroCutscene" type="CanvasLayer" unique_id=136808946]
+script = ExtResource("1_485iv")
+
+[node name="Panel" type="Panel" parent="." unique_id=1161428001]
+offset_right = 1523.0
+offset_bottom = 819.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=336189565]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 218.0
+offset_right = 1547.0
+offset_bottom = 1071.0
+scale = Vector2(0.79318553, 0.79318553)
+
+[node name="StoryText" type="Label" parent="Panel/VBoxContainer" unique_id=1496445917]
+custom_minimum_size = Vector2(0.24, 0)
+layout_mode = 2
+text = "You find yourself in a dangerous square world. Hit energy tiles. Stomp on enemy cube, avoid face to face confrontation, as they are not friendly. Also make sure to reach the required score or else the exit portal will not open."
+label_settings = SubResource("LabelSettings_485iv")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=2007829885]
+layout_mode = 2
+text = "Continue"

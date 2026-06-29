@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c54fp6vrxg2gm"]
+
+[ext_resource type="Script" uid="uid://cibrdg7m1ylkm" path="res://Scripts/power_tile.gd" id="1_4xnhb"]
+[ext_resource type="Texture2D" uid="uid://cqq8djqhdwedq" path="res://Sprites/Powerup_Tile.png" id="1_knj6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cry63"]
+size = Vector2(20, 1.582278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvk25"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=356944812]
+script = ExtResource("1_4xnhb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914904109]
+texture = ExtResource("1_knj6p")
+
+[node name="BottomDetector" type="Area2D" parent="." unique_id=1118006557]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDetector" unique_id=1231450420]
+position = Vector2(0, 34.5)
+scale = Vector2(3.16, 3.16)
+shape = SubResource("RectangleShape2D_cry63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893770059]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_uvk25")
+
+[connection signal="body_entered" from="BottomDetector" to="." method="_on_bottom_detector_body_entered"]
